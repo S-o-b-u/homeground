@@ -249,8 +249,8 @@ export default function ResultContent() {
           >
             Recheck
           </button>
-          <a href="/" className="bg-white text-[#c4528b] px-4 py-2 rounded-lg font-bold text-sm border-2 border-[#e0c5d1] hover:bg-[#f5e1e8] transition-all shadow-md">Back to Home</a>
-          <button onClick={handlePrint} className="bg-white text-[#c4528b] px-4 py-2 rounded-lg font-bold text-sm border-2 border-[#e0c5d1] hover:bg-[#f5e1e8] transition-all shadow-md">Print Result</button>
+          <a href="/" className="bg-white text-[#c4528b] px-4 py-2 rounded-lg font-bold text-sm border-2 border-[#e0c5d1] hover:bg-[#f5e1e8] transition-all shadow-md">Back</a>
+          <button onClick={handlePrint} className="bg-white text-[#c4528b] px-4 py-2 rounded-lg font-bold text-sm border-2 border-[#e0c5d1] hover:bg-[#f5e1e8] transition-all shadow-md">Print</button>
           </div>
         </div>
         </div>
