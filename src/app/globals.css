@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  html, body {
+    background: #fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    overflow: hidden !important;
+  }
+
+  /* Make everything hidden by default in print */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Make the result card and its children visible */
+  #result-card, #result-card * {
+    visibility: visible !important;
+  }
+
+  #result-card {
+    background: #fff !important;
+    border: 2.5mm solid #c4528b !important; /* Apply border directly to the card */
+    border-radius: 0 !important; /* Remove border radius in print */
+    padding: 20px 30px !important; /* Keep internal padding */
+    margin: 0 !important; /* Remove margin in print */
+    width: 100% !important; /* Make card full width */
+    height: 100% !important; /* Make card full height */
+    max-width: 100% !important; /* Ensure it doesn't exceed 100% */
+    max-height: 100% !important; /* Ensure it doesn't exceed 100% */
+    box-sizing: border-box !important; /* Include border in the element's total width and height */
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  /* Style for the print header div */
+  #result-card .hidden.print\:block {
+      text-align: center !important;
+      background-color: #c4528b !important; /* Apply background to the parent div */
+      color: #1e1c1c !important; /* Ensure all text within is white */
+      margin: 0 -30px 20px -30px !important; /* Adjusted margins */
+      padding: 15px !important; /* Add padding inside the header */
+  }
+
+  #result-card .hidden.print\:block div:first-child {
+      font-size: 1.8em !important; /* Larger font size for the main title */
+      font-weight: bold !important;
+      margin-bottom: 5px !important;
+  }
+
+   #result-card .hidden.print\:block div:nth-child(2) {
+      font-size: 1.2em !important; /* Font size for the exam name */
+      margin-bottom: 3px !important;
+      color: #1e1c1c !important; /* Explicitly set text color to white */
+  }
+
+   #result-card .hidden.print\:block div:nth-child(3) {
+      font-size: 0.9em !important; /* Smaller font for the motto */
+      margin-bottom: 5px !important;
+      font-style: italic !important;
+      color: #1e1c1c !important; /* Use a lighter shade for the motto as before */
+  }
+
+
+  #result-card h1, #result-card h2 {
+    color: #c4528b !important; /* Updated heading color */
+    margin: 0 !important;
+    font-size: 1.5em !important;
+    letter-spacing: 0.5px !important;
+    font-weight: bold !important;
+  }
+
+  #result-card table {
+    background: #1e1c1c !important;
+    border-radius: 6px !important;
+    margin-bottom: 10px !important;
+    font-size: 1em !important;
+    border-collapse: collapse;
+  }
+
+  #result-card th {
+    background: #e0c5d1 !important; /* Updated table header background to lighter shade */
+    color: #1e1c1c !important; /* Keep text white */
+    font-weight: bold !important;
+    border: 1px solid #c4528b !important; /* Keep border color the main color */
+    padding: 6px 4px !important;
+  }
+
+  #result-card td {
+    border: 1px solid #c4528b !important; /* Updated table cell border */
+    padding: 6px 4px !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* Utility classes for print */
+  .print\:block {
+    display: block !important;
+  }
+
+  .print\:p-0 {
+    padding: 0 !important;
+  }
+   .print\:hidden {
+      display: none !important;
+  }
+}
+
+.print-page-break {
+  display: none;
+}
